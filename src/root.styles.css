@@ -1,0 +1,14 @@
+.action-container {
+  text-align: right;
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.username {
+  margin-right: 10px;
+}
+
+.username span {
+  margin-left: 5px;
+}

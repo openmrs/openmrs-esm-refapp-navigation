@@ -7,7 +7,7 @@ import { getCurrentUser } from "@openmrs/esm-api";
 import Root from "./root.component";
 
 const mockGetCurrentUser = getCurrentUser;
-const mockSetUserLanguage = jest.fn();
+
 afterEach(cleanup);
 
 const mockUser = {
@@ -21,10 +21,6 @@ const mockUser = {
     roles: [{ uuid: "uuid", display: "System Developer" }]
   }
 };
-
-jest.mock("react-cookie", () => ({
-  useCookies: () => ["", mockSetUserLanguage]
-}));
 
 jest.mock("@openmrs/esm-api", () => ({
   openmrsFetch: jest.fn().mockResolvedValue({}),
@@ -50,24 +46,7 @@ describe(`<Root />`, () => {
       wrapper = render(<Root />);
     });
 
-    waitForElement(() => wrapper.getByText("Test User")).then(() => {
-      done();
-    });
-  });
-
-  it(`should set locale in cookie`, done => {
-    mockGetCurrentUser.mockImplementation(() => of(mockUser));
-    let wrapper;
-    act(() => {
-      wrapper = render(<Root />);
-    });
-
-    waitForElement(() => wrapper.getByText("Test User")).then(() => {
-      expect(mockSetUserLanguage).toBeCalledWith(
-        "__openmrs_language",
-        mockUser.locale,
-        { path: "/" }
-      );
+    waitForElement(() => wrapper.getByText("admin")).then(() => {
       done();
     });
   });

@@ -42,10 +42,13 @@ export default function Root(props: RootProps) {
           </a>
         </div>
         <div className={styles["action-container"]}>
-          <div className={styles["username"]}>
+          <a
+            href="/openmrs/adminui/myaccount/myAccount.page"
+            className={styles["username"]}
+          >
             <i className="icon-user small"></i>
             <span>{userName}</span>
-          </div>
+          </a>
           <a href={logoutPath}>
             Logout
             <i className="icon-signout small"></i>

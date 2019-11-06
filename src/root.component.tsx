@@ -1,19 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { getCurrentUser } from "@openmrs/esm-api";
 
+import resources from "./translations";
+import { initI18n } from "./utils/translations";
+
 import styles from "./root.styles.css";
+import { Trans } from "react-i18next";
 
 export default function Root(props: RootProps) {
-  const [isLoggedIn, setIsLoggedIn] = React.useState(true);
-  const [userName, setUserName] = React.useState(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [userName, setUserName] = useState(null);
+  const [locale, setLocale] = useState("en");
+
+  initI18n(resources, locale, useEffect);
 
   const logoutPath = "/openmrs/appui/header/logout.action?successUrl=openmrs";
 
   const setCurrentUserDetails = user => {
     if (user.authenticated) {
       setIsLoggedIn(true);
-      const { display } = user.user;
-      setUserName(display);
+      setUserName(user.user.display);
+      setLocale(user.locale);
     } else {
       setIsLoggedIn(false);
     }
@@ -50,7 +57,7 @@ export default function Root(props: RootProps) {
             <span>{userName}</span>
           </a>
           <a href={logoutPath}>
-            Logout
+            <Trans>Logout</Trans>
             <i className="icon-signout small"></i>
           </a>
         </div>

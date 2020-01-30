@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getCurrentUser } from "@openmrs/esm-api";
+import { openmrsFetch, getCurrentUser } from "@openmrs/esm-api";
 
 import resources from "./translations";
 import { initI18n } from "./utils/translations";
@@ -11,6 +11,7 @@ export default function Root(props: RootProps) {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [userName, setUserName] = useState(null);
   const [locale, setLocale] = useState("en");
+  const [navBarConfig, setNavBarConfig] = useState({ url: "" });
 
   initI18n(resources, locale, useEffect);
 
@@ -31,6 +32,19 @@ export default function Root(props: RootProps) {
       setCurrentUserDetails(user)
     );
 
+    const configPath = "/frontend/headerConfig";
+    const configPromise = openmrsFetch(`${configPath}.json`);
+    const defaultNavBarConfig = { url: "default" };
+
+    Promise.resolve(configPromise)
+      .then(configResponse => {
+        setNavBarConfig(configResponse.data);
+      })
+      .catch(error => {
+        console.log(`Unable to load the header configuration: ${error}`);
+        setNavBarConfig(defaultNavBarConfig);
+      });
+
     return () => sub.unsubscribe();
   }, []);
 
@@ -44,8 +58,17 @@ export default function Root(props: RootProps) {
     isLoggedIn && (
       <div className={"header"}>
         <div>
-          <a href="/openmrs" className="logo">
-            <span></span>
+          <a href="/openmrs" className="logo" title="navbar-logo">
+            {navBarConfig.url == "default" ? (
+              <span></span>
+            ) : (
+              <img
+                src={`../${navBarConfig.url}`}
+                alt="custom-logo"
+                height="60"
+                width="150"
+              />
+            )}
           </a>
         </div>
         <div className={styles["action-container"]}>

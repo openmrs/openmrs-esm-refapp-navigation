@@ -43,8 +43,7 @@ export default function Root(props: RootProps) {
         setNavBarConfig(configResponse.data);
       })
       .catch(error => {
-        /* eslint no-console: ["error", { allow: ["log"] }] */
-        console.log(`Unable to load the header configuration: ${error}`);
+        console.log(`Unable to load the header configuration: ${error}`); // eslint-disable-line
         setNavBarConfig(defaultNavBarConfig);
       });
 

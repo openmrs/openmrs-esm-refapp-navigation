@@ -65,10 +65,9 @@ export default function Root(props: RootProps) {
               <span></span>
             ) : (
               <img
+                className={styles["custom-logo"]}
                 src={`../${navBarConfig.url}`}
                 alt="custom-logo"
-                height={`${logoHeight}`}
-                width={`${logoWidth}`}
               />
             )}
           </a>

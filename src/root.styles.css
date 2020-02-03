@@ -12,3 +12,8 @@
 .username span {
   margin-left: 5px;
 }
+
+.custom-logo {
+  height: 60px;
+  width: 120px;
+}

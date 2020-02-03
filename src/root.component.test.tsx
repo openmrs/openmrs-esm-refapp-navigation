@@ -56,7 +56,9 @@ describe(`<Root />`, () => {
   });
 
   it(`should show custom logo if header config is present`, done => {
-    openmrsFetch.mockResolvedValueOnce({ data: { url: "logo.png" } });
+    openmrsFetch.mockResolvedValueOnce({
+      data: { type: "custom", url: "logo.png" }
+    });
 
     let navBar;
     act(() => {

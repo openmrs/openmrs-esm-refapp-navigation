@@ -71,6 +71,23 @@ describe(`<Root />`, () => {
     });
   });
 
+  it(`should have no image tag for empty type in header config`, done => {
+    openmrsFetch.mockResolvedValueOnce({
+      data: { type: "", url: "logo.svg" }
+    });
+
+    let navBar;
+    act(() => {
+      navBar = render(<Root />);
+    });
+
+    waitForElement(() => navBar.getByTitle("navbar-logo")).then(() => {
+      const logoLink = navBar.getByTitle("navbar-logo");
+      expect(logoLink.children.length).toBe(0);
+      done();
+    });
+  });
+
   it(`should show default logo if header config is not present`, done => {
     openmrsFetch.mockRejectedValueOnce();
 

@@ -53,20 +53,27 @@ export default function Root(props: RootProps) {
     }
   }, [isLoggedIn]);
 
+  function getLogo() {
+    if (navBarConfig.type == "") {
+      return "";
+    }
+    return navBarConfig.type == "custom" ? (
+      <img
+        className={styles["custom-logo"]}
+        src={`../${navBarConfig.url}`}
+        alt="custom-logo"
+      />
+    ) : (
+      <span></span>
+    );
+  }
+
   return (
     isLoggedIn && (
       <div className={"header"}>
         <div>
           <a href="/openmrs" className="logo" title="navbar-logo">
-            {navBarConfig.type == "custom" ? (
-              <img
-                className={styles["custom-logo"]}
-                src={`../${navBarConfig.url}`}
-                alt="custom-logo"
-              />
-            ) : (
-              <span></span>
-            )}
+            {getLogo()}
           </a>
         </div>
         <div className={styles["action-container"]}>

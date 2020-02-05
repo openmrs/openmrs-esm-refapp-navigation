@@ -56,17 +56,16 @@ export default function Root(props: RootProps) {
   function getLogo() {
     if (navBarConfig.type == "") {
       return "";
-    } else if (navBarConfig.type == "default") {
-      return <span></span>;
-    } else if (navBarConfig.type == "custom") {
-      return (
-        <img
-          className={styles["custom-logo"]}
-          src={`../${navBarConfig.url}`}
-          alt="custom-logo"
-        />
-      );
     }
+    return navBarConfig.type == "custom" ? (
+      <img
+        className={styles["custom-logo"]}
+        src={`../${navBarConfig.url}`}
+        alt="custom-logo"
+      />
+    ) : (
+      <span></span>
+    );
   }
 
   return (

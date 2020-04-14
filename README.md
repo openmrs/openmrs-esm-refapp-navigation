@@ -1,6 +1,10 @@
 # openmrs-esm-refapp-navigation
 
-This module exposes a navigation bar (header) based on OpenMRS refapp style guide
+A Microfrontend navbar based on the RefApp, built using
+[RefApp styles](https://github.com/openmrs/openmrs-esm-refapp-styleguide).
+
+Note that this is incompatible with the standard Microfrontends
+[styleguide](https://github.com/openmrs/openmrs-esm-styleguide).
 
 ## Pre-Requesties
 

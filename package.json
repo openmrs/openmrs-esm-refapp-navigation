@@ -1,6 +1,6 @@
 {
   "name": "@openmrs/esm-refapp-navigation",
-  "version": "0.0.6",
+  "version": "1.0.0",
   "description": "A repo for creating openmrs microfrontend refapp navigation",
   "main": "dist/openmrs-esm-refapp-navigation.js",
   "scripts": {
@@ -66,8 +66,8 @@
     "style-loader": "^0.23.1",
     "typescript": "^3.5.1",
     "webpack": "^4.33.0",
-    "webpack-cli": "^3.3.4",
-    "webpack-dev-server": "^3.7.1"
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
     "react": "^16.8.6",

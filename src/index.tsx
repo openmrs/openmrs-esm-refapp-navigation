@@ -2,8 +2,8 @@ import "./set-public-path";
 
 function setupOpenMRS() {
   return {
-    lifecycle: () => import("./refapp-navigation"),
-    activate: ""
+    lifecycle: () => import("./openmrs-esm-refapp-navigation"),
+    activate: location => true
   };
 }
 

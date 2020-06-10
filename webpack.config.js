@@ -2,7 +2,7 @@ const path = require("path");
 const CleanWebpackPlugin = require("clean-webpack-plugin").CleanWebpackPlugin;
 
 module.exports = {
-  entry: path.resolve(__dirname, "src/refapp-navigation.tsx"),
+  entry: path.resolve(__dirname, "src/index.tsx"),
   output: {
     filename: "openmrs-esm-refapp-navigation.js",
     libraryTarget: "system",

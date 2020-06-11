@@ -6,7 +6,8 @@ module.exports = {
   output: {
     filename: "openmrs-esm-refapp-navigation.js",
     libraryTarget: "system",
-    path: path.resolve(__dirname, "dist")
+    path: path.resolve(__dirname, "dist"),
+    jsonpFunction: "webpackJsonp_openmrs_esm_refapp_navigation"
   },
   module: {
     rules: [

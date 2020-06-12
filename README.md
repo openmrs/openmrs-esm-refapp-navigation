@@ -6,6 +6,8 @@ A Microfrontend navbar based on the RefApp, built using
 Note that this is incompatible with the standard Microfrontends
 [styleguide](https://github.com/openmrs/openmrs-esm-styleguide).
 
+Note: This package was initially published as `@openmrs/esm-refapp-navigation`. It was renamed to `@openmrs/esm-refapp-navigation-app` for it to be compatible with [Latest SPA](https://github.com/openmrs/openmrs-rfc-frontend/blob/master/text/0026-activation-distribution.md)
+
 ## Pre-Requesties
 
 NodeJS

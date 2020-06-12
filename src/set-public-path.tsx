@@ -1,5 +1,5 @@
 // @ts-ignore
-import { getPublicPath } from "@openmrs/esm-root-config";
+import { setPublicPath } from "systemjs-webpack-interop";
 
 // @ts-ignore
-__webpack_public_path__ = getPublicPath("@openmrs/esm-refapp-navigation");
+setPublicPath("@openmrs/esm-refapp-navigation-app");

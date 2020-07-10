@@ -1,6 +1,6 @@
 {
   "name": "@openmrs/esm-refapp-navigation-app",
-  "version": "1.0.1-beta",
+  "version": "1.0.1",
   "description": "A repo for creating openmrs microfrontend refapp navigation",
   "main": "dist/openmrs-esm-refapp-navigation.js",
   "scripts": {
